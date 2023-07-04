@@ -245,13 +245,9 @@
 }
 
 @media screen and (max-width: 400px) {
-  .home__img {
-    display: none;
-  }
-
   .home__content {
     margin-block: auto;
-    text-align: left;
+    text-align: center;
   }
 
   .home__title {
@@ -273,6 +269,14 @@
 }
 
 @media screen and (max-width: 350px) {
+  .home__img {
+    display: none;
+  }
+
+  .home__content {
+    margin-block: auto;
+  }
+
   .home__title span {
     display: inline;
   }
