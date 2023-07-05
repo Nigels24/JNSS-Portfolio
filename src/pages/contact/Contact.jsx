@@ -1,4 +1,5 @@
-import React from "react";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import {
   FaEnvelopeOpen,
@@ -14,6 +15,30 @@ import { FiSend } from "react-icons/fi";
 import "./contact.css";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_o94edbf",
+        "template_j9y976t",
+        form.current,
+        "nRgpXarju8NJoiT8P"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    e.target.reset();
+  };
+
   return (
     <section className="contact section">
       <h2 className="section__title">
@@ -80,12 +105,14 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact__form">
+        <form ref={form} onSubmit={sendEmail} className="contact__form">
           <div className="form__input-group">
             <div className="form__input-div">
               <input
                 type="text"
                 placeholder="Your Name"
+                name="user_name"
+                required
                 className="form__control"
               />
             </div>
@@ -94,6 +121,8 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Your Email"
+                name="user_email"
+                required
                 className="form__control"
               />
             </div>
@@ -102,6 +131,8 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Your Subject"
+                name="subject"
+                required
                 className="form__control"
               />
             </div>
@@ -109,7 +140,7 @@ const Contact = () => {
 
           <div className="form__input-div">
             <textarea
-              placeholder="Your Message"
+              placeholder="Message"
               className="form__control textarea"
             ></textarea>
           </div>
