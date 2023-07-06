@@ -22,14 +22,15 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_o94edbf",
-        "template_j9y976t",
+        "service_2mad73q",
+        "template_yhe2dpr",
         form.current,
-        "nRgpXarju8NJoiT8P"
+        "MOY2N7s0OoH9E-lmV"
       )
       .then(
         (result) => {
           console.log(result.text);
+          alert("Message Sent Successfully");
         },
         (error) => {
           console.log(error.text);
@@ -140,7 +141,8 @@ const Contact = () => {
 
           <div className="form__input-div">
             <textarea
-              placeholder="Message"
+              placeholder="Your message"
+              name="message"
               className="form__control textarea"
             ></textarea>
           </div>
