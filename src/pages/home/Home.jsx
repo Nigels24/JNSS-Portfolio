@@ -12,7 +12,8 @@ const Home = () => {
       <div className="home__content">
         <div className="home__data">
           <h1 className="home__title">
-            <span>John Nigels Sipe </span> Frontend Developer
+            <span>John Nigels Sipe </span>
+            ᴬˢᵖⁱʳⁱⁿᵍ Frontend Developer
           </h1>
 
           <p className="home__description">
